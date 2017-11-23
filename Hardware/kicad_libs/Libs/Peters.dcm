@@ -1,0 +1,123 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 2N2222
+D 40V Vce, 500Ic, HIGH SPEED SWITCHES, TO-18
+K Low Power Bipolar Transistors
+F http://www.st.com/content/ccc/resource/technical/document/datasheet/a0/75/d9/bd/fc/ca/42/15/CD00003223.pdf/files/CD00003223.pdf/jcr:content/translations/en.CD00003223.pdf
+$ENDCMP
+#
+$CMP 2N7002
+D 500V Vds, 45A Id, N-channel MOSFET
+K N-Channel Switching MOSFET
+F http://www.st.com/content/ccc/resource/technical/document/datasheet/fb/10/88/ac/4b/dc/4c/66/CD00002477.pdf/files/CD00002477.pdf/jcr:content/translations/en.CD00002477.pdf
+$ENDCMP
+#
+$CMP 74HCT541
+F C:/Users/Lillahunden/Documents/Datasheets/74HC540D_datasheet_en_20160524 (1).pdf
+$ENDCMP
+#
+$CMP 78L05
+D Linear Regulator +5V
+K POWER REGUL
+F regulator\lm78lxx.pdf
+$ENDCMP
+#
+$CMP A03401
+D 30V P-Channel MOSFET
+K AO3401
+F C:/Users/Lillahunden/Documents/Datasheets/AO3401.pdf
+$ENDCMP
+#
+$CMP AD822AN
+D Single-Supply, Rail-to-Rail, Low Power FET-Input Op Amp
+K opamp
+F http://www.analog.com/media/en/technical-documentation/data-sheets/AD822.pdf
+$ENDCMP
+#
+$CMP AD8628
+D Zero-Drift, Single-Supply, Rail-to-Rail Operational Amplifier
+K opamp
+F http://www.analog.com/media/en/technical-documentation/data-sheets/AD8628_8629_8630.pdf
+$ENDCMP
+#
+$CMP ADS1115
+D Quad 16-Bit ADCs, Low-Power, Internal Reference, I2C
+K ADC
+F http://www.ti.com/lit/ds/symlink/ads1114.pdf
+$ENDCMP
+#
+$CMP ATMEGA328PB-AU_Arduino
+D TQFP32, 32k Flash, 2kB SRAM, 1K EEPROM
+K AVR 8bit Microcontroller MegaAVR Arduino
+F http://www.atmel.com/images/atmel-42397-8-bit-avr-microcontroller-atmega328pb_datasheet.pdf
+$ENDCMP
+#
+$CMP ATMEGA328PB-AU_Programmer
+D QFP32 to 28
+$ENDCMP
+#
+$CMP FQP27P06
+D  -27A, -60V, RDS(on) = 0.07Ω @VGS = -10 V
+K P-Channel MOSFET
+F https://www.sparkfun.com/datasheets/Components/General/FQP27P06.pdf
+$ENDCMP
+#
+$CMP G6A-274P
+D Relay
+K  OMRON  G6A-274P
+$ENDCMP
+#
+$CMP INA219
+D current monitor
+F http://www.ti.com/lit/ds/symlink/ina219.pdf
+$ENDCMP
+#
+$CMP LM35
+D LM35 Precision Centigrade Temperature Sensors
+K temp, LM35
+F http://www.ti.com/lit/ds/symlink/lm35.pdf
+$ENDCMP
+#
+$CMP LM7805
+D Linear Regulator +5V
+K POWER REGUL
+F regulator\lm78xx.pdf
+$ENDCMP
+#
+$CMP LM7812
+D Linear Regulator +12V
+K POWER REGUL
+F regulator\lm78xx.pdf
+$ENDCMP
+#
+$CMP LT1054
+D LT1054 Switched-Capacitor Voltage Converters
+K Negative
+F http://www.ti.com/lit/ds/symlink/lt1054.pdf
+$ENDCMP
+#
+$CMP MCP4725
+D MCP4725, Single 12-bit Digital to Analog Converter, I2CInterface, SOT23-5
+K Single DAC 1ch 12bit I2C
+F http://ww1.microchip.com/downloads/en/DeviceDoc/22039d.pdf
+$ENDCMP
+#
+$CMP STW45NM50
+D 50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23
+K N-Channel MOSFET Logic Level
+F http://www.fairchildsemi.com/ds/BS/BSS138.pdf
+$ENDCMP
+#
+$CMP UA741
+D  General-Purpose Operational Amplifiers
+K  OpAmp
+F http://www.ti.com/lit/ds/symlink/ua741.pdf
+$ENDCMP
+#
+$CMP lm2937(7805)
+D Linear Regulator +5V
+K POWER REGUL
+F regulator\lm78xx.pdf
+$ENDCMP
+#
+#End Doc Library

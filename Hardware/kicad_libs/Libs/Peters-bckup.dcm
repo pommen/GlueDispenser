@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NRF2401+
+D nRF24L01+ BREAKOUT
+K nRF24L01+ 
+$ENDCMP
+#
+#End Doc Library
