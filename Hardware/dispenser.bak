@@ -32,6 +32,7 @@ LIBS:valves
 LIBS:Peters
 LIBS:L298N
 LIBS:WS2812B
+LIBS:a4973
 LIBS:dispenser-cache
 EELAYER 25 0
 EELAYER END
@@ -335,7 +336,7 @@ U 1 1 5A070E88
 P 7150 10450
 F 0 "JP1" V 7196 10362 50  0000 R CNN
 F 1 "Jumper" V 7105 10362 50  0000 R CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 7150 10450 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x01_Pitch2.54mm" H 7150 10450 50  0001 C CNN
 F 3 "" H 7150 10450 50  0001 C CNN
 	1    7150 10450
 	0    -1   -1   0   
@@ -1070,8 +1071,6 @@ Wire Wire Line
 Wire Wire Line
 	11600 1800 11600 2200
 Wire Wire Line
-	11550 2000 12300 2000
-Wire Wire Line
 	1700 1250 1700 1450
 Wire Wire Line
 	1250 950  1150 950 
@@ -1301,7 +1300,7 @@ U 1 1 5A0A3D14
 P 11800 9000
 F 0 "JP2" H 11850 8900 50  0000 L CNN
 F 1 "DecayMode" H 11800 9100 50  0000 C BNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 11800 9000 50  0001 C CNN
+F 2 "jumper:SOLDER-JUMPER_2-WAY" H 11800 9000 50  0001 C CNN
 F 3 "" H 11800 9000 50  0001 C CNN
 	1    11800 9000
 	0    -1   -1   0   
@@ -1592,17 +1591,6 @@ Wire Wire Line
 Wire Wire Line
 	12800 2150 12800 2250
 $Comp
-L TEST TP1
-U 1 1 5A0B3992
-P 12300 2000
-F 0 "TP1" H 12300 2300 50  0000 C BNN
-F 1 "TEST" H 12300 2250 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Angled_1x01_Pitch2.54mm" H 12300 2000 50  0001 C CNN
-F 3 "" H 12300 2000 50  0001 C CNN
-	1    12300 2000
-	1    0    0    -1  
-$EndComp
-$Comp
 L LM2675 U2
 U 1 1 5A169D00
 P 3600 1100
@@ -1824,4 +1812,32 @@ Wire Wire Line
 	14200 3500 14100 3500
 Wire Notes Line
 	5650 10950 3200 10950
+$Comp
+L Screw_Terminal_01x03 J5
+U 1 1 5A1FD8A3
+P 11350 900
+F 0 "J5" H 11350 1100 50  0000 C CNN
+F 1 "Limitswitches" H 11350 700 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 11350 900 50  0001 C CNN
+F 3 "" H 11350 900 50  0001 C CNN
+	1    11350 900 
+	-1   0    0    1   
+$EndComp
+Text GLabel 11550 1000 2    60   Input ~ 0
+endStop1
+Text GLabel 11550 900  2    60   Input ~ 0
+endStop2
+$Comp
+L GND #PWR062
+U 1 1 5A1FDD4B
+P 12200 800
+F 0 "#PWR062" H 12200 550 50  0001 C CNN
+F 1 "GND" H 12205 627 50  0000 C CNN
+F 2 "" H 12200 800 50  0001 C CNN
+F 3 "" H 12200 800 50  0001 C CNN
+	1    12200 800 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12200 800  11550 800 
 $EndSCHEMATC
