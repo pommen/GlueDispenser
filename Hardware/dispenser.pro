@@ -1,4 +1,4 @@
-update=13.11.2017 15.43.34
+update=12/11/2017 19:38:37
 version=1
 last_client=kicad
 [general]
@@ -29,7 +29,7 @@ version=1
 NetIExt=net
 [eeschema]
 version=1
-LibDir=../../Libs/Libs;kicad_libs/Libs
+LibDir=../../Libs/Libs
 [eeschema/libraries]
 LibName1=dispenser-rescue
 LibName2=power
@@ -64,4 +64,3 @@ LibName30=valves
 LibName31=Peters
 LibName32=L298N
 LibName33=WS2812B
-LibName34=a4973

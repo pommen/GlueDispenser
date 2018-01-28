@@ -69,11 +69,16 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, PixelPin, NEO_GRB + NEO_KHZ800);
 //*************  Config Params**************
 
 
-const int step_multiplier = 140; //encoder pulses per commanded step
-const int motorSpeed = 95; //pwm for motor speed  - lägre är snabbare
+const int step_multiplier = 130; //encoder pulses per commanded step
+const int motorSpeed = 90; //pwm for motor speed  - lägre är snabbare
 const int deadline_multiplier = 4500; //är denna för liten så kommer dispesern gå i timeout näar vi kör långsamt
 int BackUpPulses = 1000;
+int waitTimeUntilRetract = 0;
+int backUpExtra = 1500;
 
+
+
+//*****************************************
 
 
 //VARS:
@@ -248,17 +253,21 @@ void loop() {
                 if (pulses == 0 ) {
                         error_blink(1);
                 }
+
+
                 else  {
-                        for (int i = 0; i < pulses; i++) {
 
-                                pixels.setPixelColor(0, pixels.Color(0,0,150));
-                                pixels.show(); // This sends the updated pixel color to the hardware.
-                                delay(30);
-                                pixels.setPixelColor(0, pixels.Color(0,0,0));
-                                pixels.show(); // This sends the updated pixel color to the hardware.
-                                delay(30);
-                        }
+                        /*
+                              for (int i = 0; i < pulses; i++) {
 
+                                      pixels.setPixelColor(0, pixels.Color(0,0,150));
+                                      pixels.show();   // This sends the updated pixel color to the hardware.
+                                      delay(30);
+                                      pixels.setPixelColor(0, pixels.Color(0,0,0));
+                                      pixels.show();   // This sends the updated pixel color to the hardware.
+                                      delay(30);
+                              }
+                         */
                         out_done();
                         run(pulses, 1, 0);
                 }
@@ -286,7 +295,7 @@ void loop() {
 
         }
         heartBeat();
-        //Serial.println("restart loop");
+//Serial.println("restart loop");
 
 }
 
@@ -351,7 +360,6 @@ void heartBeat(){
 
 }
 void run(int steps, int dir, boolean no_BackUp){
-        int deadline = steps * deadline_multiplier;  // hur lång tid borde det ta att komma i mål. gåt den över denna tiden genererad ett fel.
         boolean end2 = true;
         pixels.setPixelColor(0, yellow);
         pixels.show();
@@ -363,29 +371,28 @@ void run(int steps, int dir, boolean no_BackUp){
         if (has_run_once == true) {
                 Serial.print("har backat förr. före kompensering : ");
                 Serial.println(steps);
-                steps =steps+BackUpPulses;
+                steps = steps+BackUpPulses;
                 Serial.print("Efter kompensering : ");
                 Serial.println(steps);
 
         }
+        int deadline = steps * deadline_multiplier;  // hur lång tid borde det ta att komma i mål. gått den över denna tiden genererad ett fel.
 
         Serial.print("running ");
         Serial.print(steps);
         Serial.println(" steps.");
+
         if (dir == 1) fram();
         if (dir== 0) bak();
+        delay(5);
         long endstop_timer =millis();
         long deadline_timer = millis();
         //här kör vi motorn tills den är framme, når ett endstop eller kör för länge utan encoder.
-        int diff = steps - pos;
+        int diff = (steps +backUpExtra) - pos;
 
         while ( diff > 0) {
                 diff = steps - pos;
 
-                if (diff < 100) {   //close to end of run we decelerate
-
-                        analogWrite(en, diff/2);
-                }
 
 //********************************* FEL GENERATOR under körning **************************
 
@@ -414,11 +421,10 @@ void run(int steps, int dir, boolean no_BackUp){
 
         off();
         pos = 0;
-        delay(BackUpPulses+1000); //låter limmet tyta ut innan vi backar
+        delay(BackUpPulses+waitTimeUntilRetract); //låter limmet tyta ut innan vi backar
         if (no_BackUp == 0) {
-                backa(BackUpPulses_temp);
+                backa(BackUpPulses_temp+backUpExtra); //+1000 pga att jag inte vill scalera 10000 varje gång vi kör loopen
         }
-        //  BackUpPulses = BackUpPulses_temp;
         detachInterrupt(0);
         has_run_once = true;
         pos =0;
